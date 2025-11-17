@@ -1,0 +1,302 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: hsl(217, 61%, 90%);
+}
+
+.logo1 {
+  position: absolute;
+  left: 10px;
+  top: 50%; /*learn more about this */
+  transform: translateY(-50%); /* vertically center the icon */
+}
+.moon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: thistle;
+  padding: 7px;
+  border-radius: 10px;
+}
+.searchit {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  /* margin-bottom: 70px; */
+}
+#search {
+  width: 100%;
+  min-width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  padding-left: 350px;
+}
+
+.eword {
+  flex: 1;
+}
+.middle {
+  display: flex;
+  flex-direction: row;
+  gap: 500px;
+}
+.buttons {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  align-items: center;
+  border: 50%;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.half {
+  margin-top: 10px;
+}
+.b1 {
+  width: 70px;
+  border-radius: 30px;
+  height: 30px;
+  border: 1px solid black;
+}
+.b1:hover {
+  background-color: red;
+  color: white;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  grid-template-rows: repeat(
+    auto-fill,
+    3,
+    100px
+  ); /*find why the auto-fill helped*/
+  gap: 20px;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: baseline;
+  font-size: 12px;
+  margin-left: 16px;
+}
+.img img {
+  height: 40px;
+  width: 40px;
+}
+
+.item {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.2s ease;
+}
+.item-header {
+  display: flex;
+  justify-content: left; /*figure out how to use this*/
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.slide {
+  position: relative;
+  width: 44px;
+  height: 22px;
+}
+.sliderr {
+  position: absolute;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.3s ease;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; /* spreads them apart */
+  width: 100%;
+}
+
+.switch {
+  position: relative;
+  display: flex;
+  align-self: flex-end;
+  width: 50px;
+  height: 24px;
+}
+
+/* hide the real checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* slider background */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* slider knob */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* when checked */
+input:checked + .slider {
+  background-color: red;
+}
+
+/* move knob when checked */
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+.remove {
+  width: 80px;
+  border-radius: 40px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+/* DARK MODE STYLES */
+.dark {
+  background-color: hsl(230, 20%, 15%);
+  color: white;
+}
+
+.dark .item {
+  background-color: hsl(230, 25%, 20%);
+  border-color: hsl(230, 20%, 30%);
+  color: white;
+}
+
+.dark #search {
+  background-color: hsl(230, 25%, 25%);
+  color: white;
+  border: 1px solid hsl(230, 20%, 40%);
+}
+
+.dark .b1 {
+  background-color: hsl(230, 25%, 20%);
+  color: white;
+  border: 1px solid white;
+}
+
+.dark .remove {
+  background-color: hsl(230, 30%, 25%);
+  color: white;
+}
+
+.dark .slider {
+  background-color: hsl(230, 20%, 40%);
+}
+
+.dark input:checked + .slider {
+  background-color: red;
+}
+
+body.dark {
+  background-color: hsl(230, 20%, 15%);
+}
+
+/* ------------------------------ */
+/* 📱 MOBILE (375px and below)    */
+/* ------------------------------ */
+@media (max-width: 375px) {
+  body {
+    padding: 0 1rem;
+  }
+
+  .container {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .item {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  #search {
+    width: 100%;
+  }
+
+  .buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* ------------------------------ */
+/* 🖥️ DESKTOP (1440px and above)  */
+/* ------------------------------ */
+@media (min-width: 1440px) {
+  .container {
+    width: 50%;
+    margin: auto;
+  }
+
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .item {
+    flex-direction: row;
+    padding: 1.5rem;
+  }
+
+  #search {
+    width: 60%;
+  }
+
+  .buttons {
+    width: auto;
+    gap: 2rem;
+  }
+}
